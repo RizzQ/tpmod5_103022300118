@@ -4,12 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-    public class HaloGeneric
+namespace DataGenericApp
+{
+    class DataGeneric<T>
     {
-        public void SapaUser<T>(T user)
+        private T data;
+        public DataGeneric(T data)
 
         {
-            Console.WriteLine($"Halo User {user}");
+            this.data = data;
+        }
+        public void PrintData()
+        {
+            Console.WriteLine($"Data yang tersimpan adalah: {data}");
         }
 
     }
@@ -18,11 +25,10 @@ using System.Threading.Tasks;
     {
         public static void Main()
         {
-            HaloGeneric halo = new HaloGeneric();
+            DataGeneric<string> dataNIM = new DataGeneric<string>("103022300118");
 
-            Console.Write("Masukkan nama Anda: ");
-            string nama = Console.ReadLine();
-            
-            halo.SapaUser("Rizqie");
+            dataNIM.PrintData();
+            Console.ReadLine();
         }
     }
+}
